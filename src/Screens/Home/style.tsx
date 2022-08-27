@@ -6,35 +6,14 @@ import {
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4F4F4F',
+    backgroundColor: '#6600cc',
     alignItems: 'center'
   },
   textTitle: {
-    fontSize: 18,
+    fontSize: 16,
+    fontWeight: '500',
     color: '#FFF',
     marginVertical: 4
-  },
-  containerCardsSelected: {
-    backgroundColor: '#000',
-    width: '100%',
-    borderBottomWidth: 2,
-    borderBottomColor: '#FFF',
-    paddingVertical: 8,
-    flexDirection: 'row'
-  },
-  cardSelected: {
-    marginHorizontal: 8,
-    alignItems: 'center'
-  },
-  imageSelected: {
-    width: 60,
-    height: 60,
-    borderRadius: 100,
-  },
-  textSelected: {
-    paddingTop: 2,
-    fontSize: 12,
-    color: '#FFF'
   },
   cardCharacter: {
     width: Dimensions.get('window').width - 100,

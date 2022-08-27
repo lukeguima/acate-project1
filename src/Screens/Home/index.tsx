@@ -11,8 +11,6 @@ import {
   useState,
 } from 'react';
 
-import { StatusBar } from 'expo-status-bar';
-
 import styles from './style';
 import Api from '../../services/Api';
 
@@ -29,19 +27,12 @@ import {
   ICharacter
 } from '../../types/index'
 
-import {
-  favoriteStateData
-} from '../../store/modules/favorite/reducer'
-
 const Home = () => {
   // API
   const [character, setCharacter] = useState<ICharacter[]>();
 
   // Modal
   const [showModal, setShowModal] = useState(false);
-
-  // Card no Store
-  const card = useSelector(favoriteStateData);
 
   const dispatch = useDispatch();
 
@@ -54,46 +45,14 @@ const Home = () => {
   })
 
   const selected = (item: ICharacter) => {
-    console.log(item)
     dispatch(addFavorite(item));
   }
 
   return (
     <ScrollView>
-      <StatusBar
-        backgroundColor="#FFF"
-        animated={true}
-      />
       <View
         style={styles.container}
       >
-        <View style={{ backgroundColor: '#000', width: '100%', paddingLeft: 9 }}>
-          <Text style={styles.textTitle}>Selecionados:</Text>
-        </View>
-        {card.length > 0 ? (
-          <View
-            style={styles.containerCardsSelected}
-          >
-            {card.map((item, index) => (
-              <View
-                style={styles.cardSelected}
-                key={index}>
-                <Image
-                  style={styles.imageSelected}
-                  source={{ uri: item.image }}
-                />
-                <Text style={styles.textSelected}>{item.name}</Text>
-              </View>
-            ))}
-          </View>
-        ) : (
-          <View
-          style={styles.containerCardsSelected}
-          >
-            <Text style={{fontSize: 14, color:'red', fontWeight:'bold', textAlign:'center', paddingLeft: 8}}>Selecionde os personagens</Text>
-          </View>
-        )}
-
         <Text style={styles.textTitle}>Cards:</Text>
         {character?.map(
           (item, index) => (
